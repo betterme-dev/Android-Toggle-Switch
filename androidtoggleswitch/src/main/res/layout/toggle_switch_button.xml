@@ -5,9 +5,7 @@
         android:id="@+id/clickable_wrapper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:focusable="true">
+        android:background="?android:attr/selectableItemBackgroundBorderless">
 
         <RelativeLayout
             android:id="@+id/relative_layout_container"
