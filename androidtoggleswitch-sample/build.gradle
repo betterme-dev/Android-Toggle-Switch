@@ -32,6 +32,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation project(':androidtoggleswitch')
 
-//    compile 'com.llollox:androidtoggleswitch:2.0.1'
-
 }

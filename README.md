@@ -13,7 +13,7 @@ Add Gradle dependency:
 
 ```groovy
 dependencies {
-    compile 'com.github.betterme-dev:Android-Toggle-Switch:2.0.1'
+    implementation 'com.github.betterme-dev:Android-Toggle-Switch:2.0.2'
 }
 ```
 
@@ -22,7 +22,7 @@ dependencies {
 <dependency>
   <groupId>com.github.betterme-dev</groupId>
   <artifactId>Android-Toggle-Switch</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
   <type>pom</type>
 </dependency>
 ```
