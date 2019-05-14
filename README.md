@@ -13,15 +13,15 @@ Add Gradle dependency:
 
 ```groovy
 dependencies {
-    compile 'com.llollox:androidtoggleswitch:2.0.1'
+    compile 'com.github.betterme-dev:Android-Toggle-Switch:2.0.1'
 }
 ```
 
 #### Maven
 ```xml
 <dependency>
-  <groupId>com.llollox</groupId>
-  <artifactId>androidtoggleswitch</artifactId>
+  <groupId>com.github.betterme-dev</groupId>
+  <artifactId>Android-Toggle-Switch</artifactId>
   <version>2.0.1</version>
   <type>pom</type>
 </dependency>
@@ -402,6 +402,7 @@ toggle switch buttons is shown below.
 | android:enabled 				       | `boolean`  	   | Enable or disable the toggle switch buttons      |
 | android:entries 				       | `array`  	     | Set the labels of each button                    |
 | android:textSize 				       | `dimension`  	 | Text size of each button                         |
+| android:fontFamily                   | `typeface`      | Typeface for text on each button                 |
 | app:checkedBackgroundColor     | `color`         | Background color of a checked button             |
 | app:checkedBorderColor         | `color`         | Border color of a checked button                 |
 | app:checkedTextColor           | `color`         | Text color of a checked button                   |
