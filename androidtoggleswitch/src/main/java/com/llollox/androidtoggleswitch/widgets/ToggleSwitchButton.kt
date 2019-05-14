@@ -10,13 +10,13 @@ import android.widget.RelativeLayout
 import com.llollox.androidtoggleswitch.R
 
 
-class ToggleSwitchButton (context: Context, var position: Int, var positionType: PositionType,
-                          listener: Listener, layoutId: Int, var prepareDecorator: ToggleSwitchButtonDecorator,
-                          var checkedDecorator: ViewDecorator?, var uncheckedDecorator: ViewDecorator?,
-                          var checkedBackgroundColor: Int, var checkedBorderColor: Int,
-                          var borderRadius: Float, var borderWidth: Float,
-                          var uncheckedBackgroundColor: Int, var uncheckedBorderColor: Int,
-                          var separatorColor: Int, var toggleMargin: Int) :
+class ToggleSwitchButton(context: Context, var position: Int, var positionType: PositionType,
+                         listener: Listener, layoutId: Int, var prepareDecorator: ToggleSwitchButtonDecorator,
+                         var checkedDecorator: ViewDecorator?, var uncheckedDecorator: ViewDecorator?,
+                         var checkedBackgroundColor: Int, var checkedBorderColor: Int,
+                         var borderRadius: Float, var borderWidth: Float,
+                         var uncheckedBackgroundColor: Int, var uncheckedBorderColor: Int,
+                         var separatorColor: Int, var toggleMargin: Int) :
         LinearLayout(context), IRightToLeftProvider {
 
     interface ToggleSwitchButtonDecorator {
@@ -35,9 +35,9 @@ class ToggleSwitchButton (context: Context, var position: Int, var positionType:
         LEFT, CENTER, RIGHT
     }
 
-    var toggleWidth                                 = 0
-    var toggleHeight                                = LinearLayout.LayoutParams.MATCH_PARENT
-    var isChecked                                   = false
+    var toggleWidth = 0
+    var toggleHeight = LinearLayout.LayoutParams.MATCH_PARENT
+    var isChecked = false
     var rightToLeftProvider: IRightToLeftProvider = this
 
     var separator: View
@@ -46,8 +46,8 @@ class ToggleSwitchButton (context: Context, var position: Int, var positionType:
     init {
 
         // Inflate Layout
-        val inflater    = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val layoutView  = inflater.inflate(R.layout.toggle_switch_button, this, true) as LinearLayout
+        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val layoutView = inflater.inflate(R.layout.toggle_switch_button, this, true) as LinearLayout
         val relativeLayoutContainer = layoutView.findViewById(R.id.relative_layout_container) as RelativeLayout
 
         // View
@@ -56,7 +56,7 @@ class ToggleSwitchButton (context: Context, var position: Int, var positionType:
         params.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE)
         params.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE)
 
-        view  = LayoutInflater.from(context).inflate(layoutId, relativeLayoutContainer, false)
+        view = LayoutInflater.from(context).inflate(layoutId, relativeLayoutContainer, false)
         relativeLayoutContainer.addView(view, params)
 
         // Bind Views
@@ -100,13 +100,13 @@ class ToggleSwitchButton (context: Context, var position: Int, var positionType:
         uncheckedDecorator?.decorate(view, position)
     }
 
-    fun setSeparatorVisibility(isSeparatorVisible : Boolean) {
+    fun setSeparatorVisibility(isSeparatorVisible: Boolean) {
         separator.visibility = if (isSeparatorVisible) View.VISIBLE else View.GONE
     }
 
     // Private instance methods
 
-    private fun getBackgroundDrawable(backgroundColor : Int, borderColor : Int) : GradientDrawable {
+    private fun getBackgroundDrawable(backgroundColor: Int, borderColor: Int): GradientDrawable {
 
         val gradientDrawable = GradientDrawable()
         gradientDrawable.setColor(backgroundColor)
@@ -122,21 +122,20 @@ class ToggleSwitchButton (context: Context, var position: Int, var positionType:
 
     private fun getCornerRadii(): FloatArray {
         if (toggleMargin > 0) {
-            return floatArrayOf(borderRadius,borderRadius,
+            return floatArrayOf(borderRadius, borderRadius,
                     borderRadius, borderRadius,
                     borderRadius, borderRadius,
-                    borderRadius,borderRadius)
-        }
-        else {
+                    borderRadius, borderRadius)
+        } else {
             val isRightToLeft = rightToLeftProvider.isRightToLeft()
-            when(positionType) {
+            return when (positionType) {
                 PositionType.LEFT ->
-                    return if (isRightToLeft) getRightCornerRadii() else getLeftCornerRadii()
+                    if (isRightToLeft) getRightCornerRadii() else getLeftCornerRadii()
 
                 PositionType.RIGHT ->
-                    return if (isRightToLeft) getLeftCornerRadii() else getRightCornerRadii()
+                    if (isRightToLeft) getLeftCornerRadii() else getRightCornerRadii()
 
-                else -> return floatArrayOf(0f,0f,0f, 0f, 0f, 0f, 0f,0f)
+                else -> floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
             }
         }
     }
@@ -146,18 +145,17 @@ class ToggleSwitchButton (context: Context, var position: Int, var positionType:
     }
 
     private fun getRightCornerRadii(): FloatArray {
-        return floatArrayOf(0f,0f,borderRadius, borderRadius, borderRadius, borderRadius, 0f,0f)
+        return floatArrayOf(0f, 0f, borderRadius, borderRadius, borderRadius, borderRadius, 0f, 0f)
     }
 
     private fun getLeftCornerRadii(): FloatArray {
-        return floatArrayOf(borderRadius, borderRadius, 0f,0f,0f,0f, borderRadius, borderRadius)
+        return floatArrayOf(borderRadius, borderRadius, 0f, 0f, 0f, 0f, borderRadius, borderRadius)
     }
 
-    private fun isFirst() : Boolean {
+    private fun isFirst(): Boolean {
         if (rightToLeftProvider.isRightToLeft()) {
             return positionType == PositionType.RIGHT
-        }
-        else {
+        } else {
             return positionType == PositionType.LEFT
         }
     }

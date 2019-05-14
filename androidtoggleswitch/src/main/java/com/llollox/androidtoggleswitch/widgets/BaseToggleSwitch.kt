@@ -192,7 +192,7 @@ abstract class BaseToggleSwitch : LinearLayout, ToggleSwitchButton.Listener {
 
                 fontFamily = ResourcesCompat.getFont(context,
                         attributes.getResourceId(R.styleable.BaseToggleSwitch_android_fontFamily,
-                                R.font.nunito_semibold))!!
+                                R.font.nunito_bold))!!
 
                 toggleElevation = attributes.getDimensionPixelSize(
                         R.styleable.BaseToggleSwitch_elevation,
