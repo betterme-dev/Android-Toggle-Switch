@@ -1,9 +1,11 @@
 package com.llollox.androidtoggleswitch.widgets
 
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.res.ResourcesCompat
 import android.support.v4.view.ViewCompat
 import android.text.TextUtils
 import android.util.AttributeSet
@@ -46,6 +48,7 @@ abstract class BaseToggleSwitch : LinearLayout, ToggleSwitchButton.Listener {
         @JvmStatic private val SEPARATOR_VISIBLE           = true
 
         @JvmStatic private val TEXT_SIZE                   = 16f
+        @JvmStatic private val TEXT_FONT                   = R.font.nunito_semibold
 
         @JvmStatic private val TOGGLE_DISTANCE             = 0f
         @JvmStatic private val TOGGLE_ELEVATION            = 0f
@@ -80,6 +83,7 @@ abstract class BaseToggleSwitch : LinearLayout, ToggleSwitchButton.Listener {
     var separatorVisible = SEPARATOR_VISIBLE
 
     var textSize:                   Float
+    var fontFamily:                 Typeface
 
     var toggleElevation = TOGGLE_ELEVATION
     var toggleMargin:               Float
@@ -122,6 +126,7 @@ abstract class BaseToggleSwitch : LinearLayout, ToggleSwitchButton.Listener {
         separatorColor              = ContextCompat.getColor(context, SEPARATOR_COLOR)
 
         textSize                    = dp2px(context, TEXT_SIZE)
+        fontFamily                    = ResourcesCompat.getFont(context, TEXT_FONT)!!
 
         toggleMargin                = dp2px(getContext(), TOGGLE_DISTANCE)
         toggleHeight                = dp2px(getContext(), TOGGLE_HEIGHT)
@@ -184,6 +189,10 @@ abstract class BaseToggleSwitch : LinearLayout, ToggleSwitchButton.Listener {
                 textSize = attributes.getDimensionPixelSize(
                         R.styleable.BaseToggleSwitch_android_textSize,
                         dp2px(context, TEXT_SIZE).toInt()).toFloat()
+
+                fontFamily = ResourcesCompat.getFont(context,
+                        attributes.getResourceId(R.styleable.BaseToggleSwitch_android_fontFamily,
+                                R.font.nunito_semibold))!!
 
                 toggleElevation = attributes.getDimensionPixelSize(
                         R.styleable.BaseToggleSwitch_elevation,
@@ -280,7 +289,6 @@ abstract class BaseToggleSwitch : LinearLayout, ToggleSwitchButton.Listener {
         }
     }
 
-
     /*
         Public instance methods
     */
@@ -308,6 +316,7 @@ abstract class BaseToggleSwitch : LinearLayout, ToggleSwitchButton.Listener {
                 val textView = view.findViewById(R.id.text_view) as TextView
                 textView.text = entries[position]
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize)
+                textView.typeface = fontFamily
             }
         }
 
@@ -347,7 +356,7 @@ abstract class BaseToggleSwitch : LinearLayout, ToggleSwitchButton.Listener {
         this.checkedDecorator = checkedDecorator
         this.uncheckedDecorator = uncheckedDecorator
 
-        for (index in 0..numEntries - 1) {
+        for (index in 0 until numEntries) {
             val positionType = getPosition(index, numEntries)
             val button = ToggleSwitchButton(context, index, positionType, this,
                     layoutId, prepareDecorator, checkedDecorator, uncheckedDecorator,
