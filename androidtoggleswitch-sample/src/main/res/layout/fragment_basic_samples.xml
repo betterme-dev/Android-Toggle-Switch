@@ -16,6 +16,27 @@
             android:padding="16dp"
             android:orientation="vertical">
 
+            <com.llollox.androidtoggleswitch.widgets.ToggleSwitch
+                android:id="@+id/switchMeasurementSystem"
+                android:layout_width="128dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:textSize="12sp"
+                app:borderRadius="32dp"
+                app:borderWidth="1dp"
+                app:checkedBackgroundColor="@color/faded_red"
+                app:checkedBorderColor="@color/faded_red"
+                app:checkedTextColor="@color/white"
+                app:textToggleLeft="fdfgsfg"
+                app:textToggleRight=" gdf fsd "
+                app:toggleHeight="30dp"
+                app:toggleWidth="72dp"
+                app:uncheckedBackgroundColor="@color/pale_grey"
+                app:uncheckedBorderColor="@color/faded_red"
+                app:uncheckedTextColor="@color/faded_red" />
+
             <TextView
                 style="@style/Label"
                 android:text="@string/two_items_switch_text"/>
