@@ -8,36 +8,6 @@
     <color name="green">#4CAF50</color>
     <color name="orange">#FF9800</color>
 
-
-    <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="black">#000000</color>
-    <color name="black_0">#00000000</color>
-    <color name="black_3">#07000000</color>
-    <color name="black_10">#1A000000</color>
-    <color name="black_20">#33000000</color>
-    <color name="black_40">#66000000</color>
-    <color name="black_60">#99000000</color>
-    <color name="black_75">#BF000000</color>
-    <color name="black_two">#222222</color>
-    <color name="black_two_40">#66222222</color>
-    <color name="black_two_50">#82222222</color>
-    <color name="black_two_60">#99222222</color>
     <color name="faded_red">#df4142</color>
-    <color name="light_orange">#ffaa3d</color>
-    <color name="faded_red_30">#9b2d2e</color>
-    <color name="pale_light_grey">#f7f7f9</color>
-    <color name="pale_grey">#fbf4f6</color>
-    <color name="bluey_grey">#D8D8D8</color>
-    <color name="light_pink">#fcdbdf</color>
-    <color name="light_cyan">#abf8f4</color>
-    <color name="light_blue">#dff4ff</color>
-    <color name="white_5">#0fFFFFFF</color>
-    <color name="very_light_pink">#b9b9b9</color>
-    <color name="very_light_pink_two">#e3e3e3</color>
-    <color name="very_light_pink_three">#d5d5d5</color>
-    <color name="very_light_grey">#f7f7f7</color>
-    <color name="warm_grey">#999999</color>
-    <color name="beige">#cdc9c9</color>
-    <color name="pale_grey_two">#ecedf2</color>
 </resources>
